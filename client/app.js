@@ -1,22 +1,20 @@
 (function() {
-'use strict';
-
-// app.module.js
+    'use strict';
 angular
-    .module('app', ['ui.router'])
-    .config(config);
+.module('app', ['ui.router'])
+.config(appConfig); 
 
-    function config($stateProvider, $urlRouterProvider, $httpProvider) {
+function appConfig ($stateProvider, $urlRouterProvider, $httpProvider) {
 
         $urlRouterProvider.otherwise('/');
-        
-        $stateProvider
-            .when('/', {
-                url: '/',
-                templateUrl: './app/home/home.html',
-                controller: 'HomeController',
-                controllerAs: 'vm'
-            });
-    }
 
-})();
+        $stateProvider
+            .state('/', {
+                url: '/',
+                templateUrl: 'app/home/home.html',
+                controller: 'homeCtrl',
+                controllerAs: 'vm'
+            })
+
+    };
+})(); // end of iife
